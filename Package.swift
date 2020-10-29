@@ -5,10 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "fdbtest",
+    platforms: [.macOS(.v10_15)],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/kirilltitov/FDBSwift.git", .upToNextMajor(from: "4.0.0")),
+        .package(name: "LGNC-Swift", url: "git@github.com:1711-games/LGNC-Swift.git", .branch("master")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -16,7 +18,8 @@ let package = Package(
         .target(
             name: "fdbtest",
             dependencies: [
-		.product(name: "FDB", package: "FDBSwift"),
+                .product(name: "FDB", package: "FDBSwift"),
+                .product(name: "LGNCore", package: "LGNC-Swift"),
 	    ]
 	),
         .testTarget(
