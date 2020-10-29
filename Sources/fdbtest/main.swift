@@ -1,6 +1,5 @@
 import FDB
 import Logging
-import LGNCore
 import struct Foundation.Date
 
 extension String {
@@ -15,8 +14,8 @@ extension Bytes {
     }
 }
 
-LGNCore.Logger.logLevel = .trace
-LoggingSystem.bootstrap(LGNCore.Logger.init)
+CustomLogger.logLevel = .trace
+LoggingSystem.bootstrap(CustomLogger.init)
 let logger = Logger(label: "default")
 FDB.logger = logger
 
